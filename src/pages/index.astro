@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Node from '../components/Note.astro';
+import dummyNotesList from '../components/constants.js';
+---
+
+<Layout>
+    <header class="header">
+        <h1>Your Note List</h1>
+    </header>
+    <button class="create-button">Create New Note</button>
+    <main>
+        {dummyNotesList.map(note => (
+            <Node {...note} />
+        ))}
+    </main>
+</Layout>
+
+<style>
+    .header {
+        text-align: center;
+        margin-top: 20px;
+		font-size: 40px;
+		color: yellow;
+    }
+
+    .create-button {
+        display: block;
+        margin: 20px auto;
+        font-size: 25px;
+        padding: 15px 30px;
+        border-radius: 10px;
+        background-color: navy;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out, background-color 0.2s;
+    }
+
+    .create-button:hover {
+        transform: scale(1.1);
+        background-color: darkblue;
+    }
+</style>

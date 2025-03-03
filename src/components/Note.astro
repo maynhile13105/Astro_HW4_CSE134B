@@ -1,0 +1,55 @@
+---
+export interface Note {
+    id: number;
+    title: string;
+    label: string;
+    content: string;
+}
+
+const { id, title, label, content } = Astro.props;
+---
+<section class="note">
+    <button class="heart-button">❤️</button>
+    <h1 class="title">Title: {title}</h1>
+    <p class="id">ID: {id}</p>
+    <p class="label">Label: {label}</p>
+    <p class="content">Content:<br>{content}</p>
+</section>
+
+<style>
+    :root {
+        background: linear-gradient(180deg, #4bb4de, #f6e2bc);
+    }
+    .note {
+        background-color: rgb(223, 255, 255);
+        width: 30vw;
+        display: grid;
+        grid-column-template: auto auto auto;
+        font-size: 25px;
+        border-radius: 10px;
+        margin: auto;
+        margin-top: 10px;
+        border: 2px navy solid;
+        padding: 20px;
+        position: relative;
+    }
+    h1 {
+        color: red;
+        font-weight: bold;
+        justify-content: center;
+        display: flex;
+    }
+    .heart-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 25px;
+        cursor: pointer;
+        transition: transform 0.2s ease-in-out;
+    }
+    .heart-button:hover {
+        transform: scale(1.2);
+    }
+</style>
